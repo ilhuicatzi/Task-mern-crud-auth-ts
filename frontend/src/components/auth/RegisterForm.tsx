@@ -56,7 +56,7 @@ export function RegisterForm() {
   }
 
   return (
-    <Card className="mx-auto max-w-sm">
+    <Card className="mx-auto min-w-80 w-[500px]">
       <CardHeader>
         <CardTitle className="text-3xl">Registro</CardTitle>
         <CardDescription>
@@ -73,7 +73,6 @@ export function RegisterForm() {
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4">
-            <div className="grid grid-cols-2 gap-2">
             <FormField
               control={form.control}
               name="firstName"
@@ -112,7 +111,6 @@ export function RegisterForm() {
                 </FormItem>
               )}
             />
-            </div>
             <FormField
               control={form.control}
               name="email"

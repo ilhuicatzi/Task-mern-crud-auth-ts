@@ -1,11 +1,9 @@
 import * as React from "react"
-import { TrendingUp } from "lucide-react"
 import { Label, Pie, PieChart } from "recharts"
 
 import {
   Card,
   CardContent,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -15,6 +13,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart"
+
 const chartData = [
   { status: "completado", tasks: 275, fill: "var(--color-completado)" },
   { status: "enprogreso", tasks: 200, fill: "var(--color-enprogreso)" },
@@ -22,7 +21,6 @@ const chartData = [
   { status: "pendiente", tasks: 173, fill: "var(--color-pendiente)" },
   { status: "cancelado", tasks: 190, fill: "var(--color-cancelado)" },
 ]
-
 const chartConfig = {
   tasks: {
     label: "Tasks",
@@ -53,9 +51,8 @@ export function CardChartStatus() {
   const totaltasks = React.useMemo(() => {
     return chartData.reduce((acc, curr) => acc + curr.tasks, 0)
   }, [])
-
   return (
-    <Card className="flex flex-col">
+    <Card className="flex flex-col sm:h-80">
       <CardHeader className="items-center pb-0">
         <CardTitle>
             Estatus de Tareas
@@ -111,12 +108,6 @@ export function CardChartStatus() {
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col gap-2 ">
-        <div className="flex items-center gap-2 font-medium leading-none">
-            <TrendingUp className="h-6 w-6" />
-            <span>Estado de tareas</span>
-        </div>
-      </CardFooter>
     </Card>
   )
 }

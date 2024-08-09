@@ -22,16 +22,16 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 function NewTaskPage() {
   return (
-    <main className="flex justify-center items-center">
+    <main className="flex justify-center items-center px-4 sm:px-10">
       <Card className="w-[700px] mt-10">
         <CardHeader>
-          <CardTitle className="text-2xl">Nueva Tarea</CardTitle>
+          <CardTitle className="text-2xl md:text-3xl">Nueva Tarea</CardTitle>
           <CardDescription>
             Crea una nueva tarea y da seguimiento a tus pendientes.
           </CardDescription>
         </CardHeader>
-        <CardContent className="grid grid-cols-3 gap-5 w-full">
-          <div className="col-span-2">
+        <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full">
+          <div className="md:col-span-2">
             <div className="flex flex-col gap-2 mb-4">
               <Label htmlFor="title" className="px-2">
                 Nombre de la tarea

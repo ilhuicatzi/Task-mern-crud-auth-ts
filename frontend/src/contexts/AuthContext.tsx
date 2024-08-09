@@ -66,10 +66,10 @@ export function AuthProvider({ children, ...props }: AuthProviderProps) {
       if (cookies.token) {
         try {
           
-          //const response = await verifyTokenRequest(cookies.token);
-          //console.log(response)
+          const response = await verifyTokenRequest(cookies.token);
+          console.log(response)
 
-          //setUser(response as userResponse | null);
+          setUser(response as userResponse | null);
           setIsAuthenticated(true);
           setIsLoading(false);
         } catch (error) {

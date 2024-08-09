@@ -1,11 +1,8 @@
-import { TrendingUp } from "lucide-react"
 import { Bar, BarChart, XAxis, YAxis } from "recharts"
 
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -42,16 +39,13 @@ const chartConfig = {
 
 export function CardChartPriority() {
   return (
-    <Card>
-      <CardHeader>
+    <Card className="flex flex-col sm:h-80">
+      <CardHeader className="flex flex-col justify-center items-center w-full">
         <CardTitle>
             Prioridades de Tareas
         </CardTitle>
-        <CardDescription>
-            Se muestra la cantidad de tareas por prioridad
-        </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="overflow-hidden sm:flex sm:h-64 mr-2">
         <ChartContainer config={chartConfig}>
           <BarChart
             accessibilityLayer
@@ -60,6 +54,7 @@ export function CardChartPriority() {
             margin={{
               left: 0,
             }}
+            maxBarSize={35}
           >
             <YAxis
               dataKey="priority"
@@ -70,6 +65,7 @@ export function CardChartPriority() {
               tickFormatter={(value) =>
                 chartConfig[value as keyof typeof chartConfig]?.label
               }
+              
             />
             <XAxis dataKey="tasks" type="number" hide />
             <ChartTooltip
@@ -80,10 +76,6 @@ export function CardChartPriority() {
           </BarChart>
         </ChartContainer>
       </CardContent>
-        <CardFooter>
-            <TrendingUp className="h-6 w-6" />
-            <span className="ml-2">Todas las prioridades</span>
-        </CardFooter>
     </Card>
   )
 }

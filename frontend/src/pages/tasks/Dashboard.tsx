@@ -6,15 +6,17 @@ import { ViewTaskTable } from "@/components/dashboard/ViewTaksTable";
 
 function Dashboard() {
   return (
-    <main className="grid grid-cols-4 px-4 gap-2 pb-5">
-      <aside>
+    <main className="grid grid-cols-1 lg:grid-cols-4 px-4 gap-2 pb-5 xl:px-10 2xl:px-20">
+
+      <aside className="lg:row-span-2">
         <ProfileComponent />
       </aside>
-      <section className="col-span-3 flex flex-col gap-y-2">
-        <article className="grid grid-cols-3 gap-2 h-[340px]">
-          <div>
-            <CardNewTaks />
-          </div>
+
+      <article>
+        <CardNewTaks />
+      </article>
+
+        <article className="grid grid-cols-1 sm:grid-cols-2 lg:col-span-2 gap-2">
           <div>
             <CardChartStatus />
           </div>
@@ -22,10 +24,10 @@ function Dashboard() {
             <CardChartPriority />
           </div>
         </article>
-        <article>
+
+        <article className="lg:col-span-3">
           <ViewTaskTable />
         </article>
-      </section>
     </main>
   );
 }
